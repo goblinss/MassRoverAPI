@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassRoverAPI.QuickStartSample", "MassRoverAPI.QuickStartSample\MassRoverAPI.QuickStartSample.csproj", "{89F474E5-28F3-4FB5-BB94-9F95E8CE227C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89F474E5-28F3-4FB5-BB94-9F95E8CE227C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F474E5-28F3-4FB5-BB94-9F95E8CE227C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F474E5-28F3-4FB5-BB94-9F95E8CE227C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F474E5-28F3-4FB5-BB94-9F95E8CE227C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3528DED9-6E87-419E-907D-CC6C0C76B0B1}
+	EndGlobalSection
+EndGlobal
