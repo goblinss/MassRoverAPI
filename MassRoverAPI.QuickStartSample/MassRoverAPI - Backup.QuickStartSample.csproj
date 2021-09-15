@@ -7,12 +7,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\net5.0\MassRoverAPI.QuickStartSample.xml</DocumentationFile>
     <OutputPath>bin\Debug\net5.0</OutputPath>
-    <NoWarn>1701;1702;1707;1591</NoWarn>
+    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.10" />

@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using System.IO;
 
 namespace MassRoverAPI.QuickStartSample
@@ -17,31 +18,40 @@ namespace MassRoverAPI.QuickStartSample
 
         public IConfiguration Configuration { get; }
 
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddSwaggerGen(c =>
+            services.AddControllersWithViews();
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "MassRover API", Version = "v1" });
-                c.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, 
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "MassRover API", Version = "v1" });
+                options.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath,
                     "MassRoverAPI.QuickStartSample.xml"));
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+           
+            app.UseRouting();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(s =>
+            app.UseEndpoints(endpoints =>
             {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "MassRover Open API");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "MassRover Open API");
+            });
         }
     }
 }
